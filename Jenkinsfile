@@ -2,21 +2,22 @@ pipeline {
     agent any
 
     stages {
+
         stage('Checkout') {
             steps {
                 checkout scm
             }
         }
 
-        stage('Test') {
-            steps {
-                sh 'python manage.py test'
-            }
-        }
-
         stage('Docker Build') {
             steps {
                 sh 'docker build . -t todo-app'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'docker run --rm todo-app python manage.py test'
             }
         }
 
