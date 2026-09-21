@@ -13,7 +13,7 @@ Once you have downloaded django, go to the cloned repo directory and run the fol
 
 ```bash
 $ python manage.py makemigrations
-```
+````
 
 This will create all the migrations file (database migrations) required to run this App.
 
